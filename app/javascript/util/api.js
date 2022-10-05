@@ -7,11 +7,16 @@ async function customFetch(url, options = {}) {
     ...options.headers
     
   };
-
-  // options.headers.append("X-CSRF-Token", csrfToken)
-
-
-  return await fetch(url, options);
+  return await fetch(url, options)
+    .then(response => {
+      if(response.ok){
+        return response.json();
+        
+      } else {
+        throw response
+      }
+    });
+    // .then(res => console.log(res));
 }
 
 export const followUser = function(id) {
