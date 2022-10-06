@@ -14,7 +14,6 @@ export default class FollowToggle {
     } else {
       this.follow();
     }
-    console.log(this.followState)
   }
 
   async follow() {

@@ -11,6 +11,8 @@ class TweetsController < ApplicationController
     sleep(1)
     
     # Your code here
+    @tweets = current_user.page_of_tweets(type: :feed, offset: params[:offset])
+    render :index
   end
 
   def create
